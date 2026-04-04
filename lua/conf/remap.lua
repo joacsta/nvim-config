@@ -10,15 +10,15 @@ vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
 vim.keymap.set("n", "<leader>t", vim.cmd.terminal, { desc = "Terminal" })
 
 -- Navegação entre janelas
-vim.keymap.set('n', '<C-h>', '<C-w>h')
-vim.keymap.set('n', '<C-j>', '<C-w>j')
-vim.keymap.set('n', '<C-k>', '<C-w>k')
-vim.keymap.set('n', '<C-l>', '<C-w>l')
-vim.keymap.set('n', '<C-e>', '<C-w>w') -- opcional
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-e>", "<C-w>w") -- opcional
 
 -- Listar buffers e escolher
-vim.keymap.set('n', '<leader><leader>', ':buffers<CR>:buffer ', {
-    desc = 'Listar buffers'
+vim.keymap.set("n", "<leader><leader>", ":buffers<CR>:buffer ", {
+	desc = "Listar buffers",
 })
 -- Próximo buffer: ]b
 vim.keymap.set("n", "]b", "<Cmd>BufferNext<CR>", { desc = "Next buffer" })
@@ -27,28 +27,28 @@ vim.keymap.set("n", "[b", "<Cmd>BufferPrevious<CR>", { desc = "Previous buffer" 
 -- Deletar buffer atual: <leader>bd
 vim.keymap.set("n", "<leader>bd", "<Cmd>BufferClose<CR>", { desc = "Delete buffer" })
 -- Fechar todos os buffers exceto o atual
-vim.keymap.set('n', '<leader>bo', ':%bd|e#|bd#<CR>', {
-    desc = 'Fechar outros buffers'
+vim.keymap.set("n", "<leader>bo", ":%bd|e#|bd#<CR>", {
+	desc = "Fechar outros buffers",
 })
 
-vim.keymap.set('n', '<leader>qq', ':qa!<CR>', {
-    desc = 'Sair de tudo sem salvar'
+vim.keymap.set("n", "<leader>qq", ":qa!<CR>", {
+	desc = "Sair de tudo sem salvar",
 })
 
 -- ═══════════════════════════════════════════
 --  Salvar
 -- ═══════════════════════════════════════════
 vim.keymap.set("n", "<C-s>", function()
-    if vim.bo.buftype == "" and vim.fn.expand("%") == "" then
-        vim.ui.input({ prompt = "Nome do arquivo: " }, function(name)
-            if name and name ~= "" then
-                vim.cmd("file " .. name)
-                vim.cmd("write")
-            end
-        end)
-    else
-        vim.cmd("write")
-    end
+	if vim.bo.buftype == "" and vim.fn.expand("%") == "" then
+		vim.ui.input({ prompt = "Nome do arquivo: " }, function(name)
+			if name and name ~= "" then
+				vim.cmd("file " .. name)
+				vim.cmd("write")
+			end
+		end)
+	else
+		vim.cmd("write")
+	end
 end, { desc = "Salvar arquivo" })
 
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { desc = "Salvar (insert)" })
@@ -79,12 +79,12 @@ vim.keymap.set("n", "L", "$")
 -- ═══════════════════════════════════════════
 --  Splits
 -- ═══════════════════════════════════════════
-vim.keymap.set("n", "<leader>|", "<cmd>vsplit<CR>",           { desc = "Split vertical" })
-vim.keymap.set("n", "<leader>-", "<cmd>split<CR>",            { desc = "Split horizontal" })
-vim.keymap.set("n", "<leader>wq", "<cmd>close<CR>",           { desc = "Fechar janela" })
-vim.keymap.set("n", "<C-Up>",    "<cmd>resize +2<CR>",        { desc = "Resize up" })
-vim.keymap.set("n", "<C-Down>",  "<cmd>resize -2<CR>",        { desc = "Resize down" })
-vim.keymap.set("n", "<C-Left>",  "<cmd>vertical resize -2<CR>", { desc = "Resize left" })
+vim.keymap.set("n", "<leader>|", "<cmd>vsplit<CR>", { desc = "Split vertical" })
+vim.keymap.set("n", "<leader>-", "<cmd>split<CR>", { desc = "Split horizontal" })
+vim.keymap.set("n", "<leader>wq", "<cmd>close<CR>", { desc = "Fechar janela" })
+vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Resize up" })
+vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Resize down" })
+vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Resize left" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Resize right" })
 
 -- ═══════════════════════════════════════════
@@ -97,9 +97,9 @@ vim.keymap.set("v", "<leader>y", '"+y', { desc = "Copiar para clipboard" })
 --  Autocommands
 -- ═══════════════════════════════════════════
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc     = "Highlight ao yankar",
-    group    = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank()
-    end,
+	desc = "Highlight ao yankar",
+	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
