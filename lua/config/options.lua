@@ -46,6 +46,12 @@ vim.api.nvim_create_autocmd("User", {
 			"onedark",
 			"ayu-dark",
 			"ayu-mirage",
+			"monokai-pro",
+			"monokai-pro-octagon",
+			"monokai-pro-machine",
+			"monokai-pro-ristretto",
+			"monokai-pro-spectrum",
+			"monokai-pro-classic",
 		}
 		math.randomseed(os.time())
 		local chosen = themes[math.random(#themes)]

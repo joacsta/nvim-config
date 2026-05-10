@@ -1,23 +1,23 @@
 return {
-    {
-        "folke/snacks.nvim",
-        opts = {
-            scroll = { enabled = false },
-            lazygit = {
-                win = {
-                    width = 0.5,
-                    height = 0.5,
-                },
-            },
-            terminal = {
-                win = {
-                    position = "bottom",
-                    width = 0.2,
-                },
-            },
-            dashboard = {
-                preset = {
-                    header = [[
+	{
+		"folke/snacks.nvim",
+		opts = {
+			scroll = { enabled = false },
+			lazygit = {
+				win = {
+					width = 0.5,
+					height = 0.5,
+				},
+			},
+			terminal = {
+				win = {
+					position = "bottom",
+					width = 0.2,
+				},
+			},
+			dashboard = {
+				preset = {
+					header = [[
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⢢⠀⠀⠀⠀⠀⠀⠀⠀⢠⣶⣶⡶⠮⠥⠀⠀⠒⠷⠶⠶⢶⣶⣶⣶⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
  ⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣾⠺⣿⣿⣛⣿⣿⠿⠿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⣿⣽⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⡜⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡏⢹⣶⡿⠯⣭⣄⡈⠳⢼⠿⠤⠴⠖⠒⠒⠒⠒⠶⠦⠤⢤⣀⣀⣠⣾⠞⠙⠳⢶⣄⠀⠀⠀⠀⠀⠀⠀⠀
@@ -51,24 +51,24 @@ return {
 ⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⢦⡀⠀⠀⠀⠀⠀⠈⠙⠒⠶⠶⠖⠋⡽⢇⣤⠄⠀⠀⠀⢒⣒⣶⣶⣤⣴⢺⠃⠀⠀⣀⡤⠖⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠑⠲⢤⣄⣀⣀⡀⠀⠀⣀⡤⠞⠁⠸⠿⠿⠟⠛⠛⠛⠛⠛⠛⠋⢉⣾⠶⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠙⢻⣭⣀⣀⡀⠀⣀⣀⡀⣀⣤⣤⡤⠴⠶⠶⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-                },
-            },
-        },
-        keys = {
-            {
-                "<c-/>",
-                function()
-                    Snacks.terminal.toggle(nil, {
-                        win = {
-                            position = "bottom",
-                            width = 0.2,
-                        },
-                    })
-                end,
-                desc = "Terminal",
-                mode = { "n", "t" },
-            },
-            { "<c-_>", false },
-        },
-    },
+				},
+			},
+		},
+		keys = {
+			{
+				"<c-/>",
+				function()
+					Snacks.terminal.toggle(nil, {
+						win = {
+							position = "bottom",
+							width = 0.2,
+						},
+					})
+				end,
+				desc = "Terminal",
+				mode = { "n", "t" },
+			},
+			{ "<c-_>", false },
+		},
+	},
 }
