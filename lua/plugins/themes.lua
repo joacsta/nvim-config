@@ -1,4 +1,5 @@
 return {
+
 	-- ═══════════════════════════════════════════
 	--  GitHub Theme
 	-- ═══════════════════════════════════════════
@@ -9,7 +10,7 @@ return {
 		config = function()
 			require("github-theme").setup({
 				options = {
-					transparent = true,
+					transparent = false,
 					styles = {
 						comments = "italic",
 						keywords = "bold",
@@ -18,7 +19,9 @@ return {
 				},
 			})
 		end,
-	}, -- ═══════════════════════════════════════════
+	},
+
+	-- ═══════════════════════════════════════════
 	--  Catppuccin
 	-- ═══════════════════════════════════════════
 	{
@@ -26,23 +29,31 @@ return {
 		name = "catppuccin",
 		lazy = false,
 		priority = 1000,
-		opts = {
-			transparent_background = false,
-			styles = {
-				comments = { "italic" },
-				keywords = { "bold" },
-				functions = { "italic", "bold" },
-			},
-			integrations = {
-				treesitter = true,
-				telescope = { enabled = true },
-				neotree = true,
-				gitsigns = true,
-				cmp = true,
-				mason = true,
-				which_key = true,
-			},
-		},
+		config = function()
+			local themes = { "frappe", "macchiato", "mocha" }
+			math.randomseed(os.time())
+			local chosen = themes[math.random(#themes)]
+
+			require("catppuccin").setup({
+				flavour = chosen,
+				transparent_background = false,
+				styles = {
+					comments = { "italic" },
+					keywords = { "bold" },
+					functions = { "italic", "bold" },
+				},
+				integrations = {
+					treesitter = true,
+					telescope = { enabled = true },
+					neotree = true,
+					gitsigns = true,
+					cmp = true,
+					mason = true,
+					which_key = true,
+					lsp_trouble = true,
+				},
+			})
+		end,
 	},
 
 	-- ═══════════════════════════════════════════
@@ -50,16 +61,24 @@ return {
 	-- ═══════════════════════════════════════════
 	{
 		"rebelot/kanagawa.nvim",
+		name = "kanagawa",
 		lazy = false,
 		priority = 1000,
-		opts = {
-			transparent = false,
-			styles = {
-				comments = { italic = true },
-				keywords = { bold = true },
-				functions = { italic = true, bold = true },
-			},
-		},
+		config = function()
+			local themes = { "wave", "dragon" }
+			math.randomseed(os.time())
+			local chosen = themes[math.random(#themes)]
+
+			require("kanagawa").setup({
+				transparent = false,
+				styles = {
+					comments = { italic = true },
+					keywords = { bold = true },
+					functions = { italic = true, bold = true },
+				},
+				theme = chosen,
+			})
+		end,
 	},
 
 	-- ═══════════════════════════════════════════
@@ -67,16 +86,19 @@ return {
 	-- ═══════════════════════════════════════════
 	{
 		"folke/tokyonight.nvim",
+		name = "tokyonight",
 		lazy = false,
 		priority = 1000,
-		opts = {
-			transparent = false,
-			styles = {
-				comments = { italic = true },
-				keywords = { bold = true },
-				functions = { italic = true, bold = true },
-			},
-		},
+		config = function()
+			require("tokyonight").setup({
+				transparent = false,
+				styles = {
+					comments = { italic = true },
+					keywords = { bold = true },
+					functions = { italic = true, bold = true },
+				},
+			})
+		end,
 	},
 
 	-- ═══════════════════════════════════════════
@@ -84,28 +106,31 @@ return {
 	-- ═══════════════════════════════════════════
 	{
 		"Mofiqul/dracula.nvim",
+		name = "dracula",
 		lazy = false,
 		priority = 1000,
-		opts = {
-			transparent = false,
-			styles = {
-				comments = { italic = true },
-				keywords = { bold = true },
-				functions = { italic = true, bold = true },
-			},
-		},
+		config = function()
+			require("dracula").setup({
+				transparent = false,
+				styles = {
+					comments = { italic = true },
+					keywords = { bold = true },
+					functions = { italic = true, bold = true },
+				},
+			})
+		end,
 	},
 
 	-- ═══════════════════════════════════════════
 	--  Everforest
 	-- ═══════════════════════════════════════════
-
 	{
 		"sainnhe/everforest",
+		name = "everforest",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.g.everforest_background = "hard"
+			vim.g.everforest_background = "hard" -- soft, medium, hard
 			vim.g.everforest_better_performance = 1
 			vim.g.everforest_enable_italic = 1
 		end,
@@ -114,6 +139,7 @@ return {
 	-- ═══════════════════════════════════════════
 	--  OneDark
 	-- ═══════════════════════════════════════════
+
 	{
 		"navarasu/onedark.nvim",
 		lazy = false,
@@ -125,6 +151,7 @@ return {
 			require("onedark").load()
 		end,
 	},
+
 	-- ═══════════════════════════════════════════
 	--  Ayu
 	-- ═══════════════════════════════════════════
@@ -137,6 +164,18 @@ return {
 			require("ayu").setup({
 				mirage = false, -- true para a variante mais escura
 			})
+		end,
+	},
+	-- ═══════════════════════════════════════════
+	--  monokai-pro
+	-- ═══════════════════════════════════════════
+	{
+		"loctvl842/monokai-pro.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("monokai-pro").setup()
+			vim.cmd.colorscheme("monokai-pro")
 		end,
 	},
 }
