@@ -3,7 +3,12 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "<leader>t", vim.cmd.terminal, { desc = "Terminal" })
-vim.keymap.set("n", "<leader>cw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Change words" })
+vim.keymap.set(
+	"n",
+	"<leader>cw",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Change all words in file" }
+)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down centralizado" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up centralizado" })
 vim.keymap.set("n", "<leader>li", ":LiveServerInstall<CR>", { desc = "Install Live Server" })

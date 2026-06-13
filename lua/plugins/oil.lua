@@ -22,7 +22,7 @@ return {
 				function()
 					require("oil").toggle_float(".")
 				end,
-				desc = "Oil flutuante (root)",
+				desc = "Oil (root)",
 			},
 		},
 		opts = {

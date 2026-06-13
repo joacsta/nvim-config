@@ -37,8 +37,6 @@ vim.api.nvim_create_autocmd("User", {
 			"dracula",
 			"everforest",
 			"github_dark",
-			"github_dark_default",
-			"github_dark_tritanopia",
 			"kanagawa-dragon",
 			"kanagawa-wave",
 			"monokai-pro",
