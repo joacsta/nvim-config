@@ -7,11 +7,11 @@ local autocmd = vim.api.nvim_create_autocmd
 
 augroup("YankHighlight", { clear = true })
 autocmd("TextYankPost", {
-  group = "YankHighlight",
-  callback = function()
-    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 })
-  end,
-  desc = "Highlight ao copiar",
+	group = "YankHighlight",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 })
+	end,
+	desc = "Highlight ao copiar",
 })
 
 -- ═══════════════════════════════════════════
@@ -20,15 +20,15 @@ autocmd("TextYankPost", {
 
 augroup("RestoreCursor", { clear = true })
 autocmd("BufReadPost", {
-  group = "RestoreCursor",
-  callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 0 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
-    end
-  end,
-  desc = "Restaurar posição do cursor",
+	group = "RestoreCursor",
+	callback = function()
+		local mark = vim.api.nvim_buf_get_mark(0, '"')
+		local lcount = vim.api.nvim_buf_line_count(0)
+		if mark[1] > 0 and mark[1] <= lcount then
+			pcall(vim.api.nvim_win_set_cursor, 0, mark)
+		end
+	end,
+	desc = "Restaurar posição do cursor",
 })
 
 -- ═══════════════════════════════════════════
@@ -37,14 +37,14 @@ autocmd("BufReadPost", {
 
 augroup("TrimWhitespace", { clear = true })
 autocmd("BufWritePre", {
-  group = "TrimWhitespace",
-  pattern = "*",
-  callback = function()
-    local save = vim.fn.winsaveview()
-    vim.cmd([[%s/\s\+$//e]])
-    vim.fn.winrestview(save)
-  end,
-  desc = "Remover espaços no final das linhas",
+	group = "TrimWhitespace",
+	pattern = "*",
+	callback = function()
+		local save = vim.fn.winsaveview()
+		vim.cmd([[%s/\s\+$//e]])
+		vim.fn.winrestview(save)
+	end,
+	desc = "Remover espaços no final das linhas",
 })
 
 -- ═══════════════════════════════════════════
@@ -53,13 +53,13 @@ autocmd("BufWritePre", {
 
 augroup("CloseWithQ", { clear = true })
 autocmd("FileType", {
-  group = "CloseWithQ",
-  pattern = { "help", "lspinfo", "man", "notify", "qf", "checkhealth" },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = event.buf, silent = true })
-  end,
-  desc = "Fechar buffer com q",
+	group = "CloseWithQ",
+	pattern = { "help", "lspinfo", "man", "notify", "qf", "checkhealth" },
+	callback = function(event)
+		vim.bo[event.buf].buflisted = false
+		vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = event.buf, silent = true })
+	end,
+	desc = "Fechar buffer com q",
 })
 
 -- ═══════════════════════════════════════════
@@ -68,11 +68,11 @@ autocmd("FileType", {
 
 augroup("NoAutoComment", { clear = true })
 autocmd("BufEnter", {
-  group = "NoAutoComment",
-  callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
-  end,
-  desc = "Não continuar comentário em nova linha",
+	group = "NoAutoComment",
+	callback = function()
+		vim.opt.formatoptions:remove({ "c", "r", "o" })
+	end,
+	desc = "Não continuar comentário em nova linha",
 })
 
 -- ═══════════════════════════════════════════
@@ -81,9 +81,9 @@ autocmd("BufEnter", {
 
 augroup("ResizeSplits", { clear = true })
 autocmd("VimResized", {
-  group = "ResizeSplits",
-  callback = function()
-    vim.cmd("tabdo wincmd =")
-  end,
-  desc = "Equalizar splits ao redimensionar",
+	group = "ResizeSplits",
+	callback = function()
+		vim.cmd("tabdo wincmd =")
+	end,
+	desc = "Equalizar splits ao redimensionar",
 })

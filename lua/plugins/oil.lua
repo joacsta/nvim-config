@@ -1,14 +1,14 @@
 return {
-	-- ─── Desativa o Neo-tree ────────────────────
+	-- ─── Neo-tree ────
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		enabled = false,
+		enabled = true,
 	},
-	-- ─── Oil.nvim ───────────────────────────────
+	-- ─── Oil ────
 	{
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		lazy = false,
+		-- Remova o "lazy = false" se quiser que ele só carregue sob demanda
 		keys = {
 			{
 				"-",
@@ -17,16 +17,10 @@ return {
 				end,
 				desc = "Oil flutuante (cwd)",
 			},
-			{
-				"<leader>e",
-				function()
-					require("oil").toggle_float(".")
-				end,
-				desc = "Oil (root)",
-			},
 		},
 		opts = {
-			default_file_explorer = true,
+			default_file_explorer = false,
+
 			delete_to_trash = true,
 			skip_confirm_for_simple_edits = true,
 			keymaps = {
@@ -39,7 +33,7 @@ return {
 				padding = 2,
 				max_width = 80,
 				max_height = 30,
-				border = "rounded",
+				border = "single",
 			},
 			win_options = {
 				wrap = false,
