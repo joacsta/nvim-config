@@ -173,9 +173,22 @@ return {
 		"loctvl842/monokai-pro.nvim",
 		lazy = false,
 		priority = 1000,
-		config = function()
-			require("monokai-pro").setup()
-			vim.cmd.colorscheme("monokai-pro")
-		end,
+	},
+
+	-- ═══════════════════════════════════════════
+	--  vscode
+	-- ═══════════════════════════════════════════
+	{
+		"Mofiqul/vscode.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+	-- ═══════════════════════════════════════════
+	--  moonfly
+	-- ═══════════════════════════════════════════
+	{
+		"bluz71/vim-moonfly-colors",
+		lazy = false,
+		priority = 1000,
 	},
 }

@@ -37,6 +37,7 @@ vim.api.nvim_create_autocmd("User", {
 			"dracula",
 			"everforest",
 			"github_dark",
+			"github_dark_colorblind",
 			"kanagawa-dragon",
 			"kanagawa-wave",
 			"monokai-pro",
@@ -45,10 +46,12 @@ vim.api.nvim_create_autocmd("User", {
 			"monokai-pro-octagon",
 			"monokai-pro-ristretto",
 			"monokai-pro-spectrum",
+			"moonfly",
 			"onedark",
 			"tokyonight-moon",
 			"tokyonight-night",
 			"tokyonight-storm",
+			"vscode",
 		}
 		math.randomseed(os.time())
 		local chosen = themes[math.random(#themes)]
