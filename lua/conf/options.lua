@@ -70,7 +70,7 @@ opt.termguicolors = true -- cores 24-bit
 opt.showmode = false -- não mostra -- INSERT -- (lualine já faz isso)
 opt.cmdheight = 1 -- altura da linha de comando
 opt.pumheight = 10 -- máximo de itens no menu de autocomplete
--- opt.colorcolumn = "88"  -- guia na coluna 88 (black/python)
+opt.colorcolumn = "88"  -- guia na coluna 88 (black/python)
 opt.smoothscroll = false
 
 -- ═══════════════════════════════════════════

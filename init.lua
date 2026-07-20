@@ -5,7 +5,7 @@ vim.g.maplocalleader = ","
 vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function(args)
     local file = vim.fn.fnamemodify(args.file, ":t")
-    vim.notify("salvo: " .. file, vim.log.levels.INFO)
+    vim.notify("saved: " .. file, vim.log.levels.INFO)
   end,
 })
 

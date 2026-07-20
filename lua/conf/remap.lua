@@ -1,8 +1,6 @@
 -- ═══════════════════════════════════════════
 --  Mover linhas
 -- ═══════════════════════════════════════════
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
 
@@ -15,6 +13,9 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-e>", "<C-w>w") -- opcional
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+
 
 -- Listar buffers e escolher
 vim.keymap.set("n", "<leader><leader>", ":buffers<CR>:buffer ", {
@@ -56,12 +57,11 @@ vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { desc = "Salvar (insert)" })
 -- ═══════════════════════════════════════════
 --  Edição
 -- ═══════════════════════════════════════════
--- Selecionar tudo
-vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 -- Duplicar linha
-vim.keymap.set("n", "<A-d>", "yyp")
 -- Substituir palavra sob cursor no arquivo todo
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>cw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+{ desc = "Substituir palavras em todo o arquivo" }
+)
 
 -- ═══════════════════════════════════════════
 --  Navegação
@@ -72,9 +72,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Centralizar ao buscar
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
--- Início/fim de linha
-vim.keymap.set("n", "H", "^")
-vim.keymap.set("n", "L", "$")
 
 -- ═══════════════════════════════════════════
 --  Splits
@@ -86,12 +83,6 @@ vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Resize up" })
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Resize down" })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Resize left" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Resize right" })
-
--- ═══════════════════════════════════════════
---  Clipboard
--- ═══════════════════════════════════════════
-vim.keymap.set("n", "<leader>y", '"+y', { desc = "Copiar para clipboard" })
-vim.keymap.set("v", "<leader>y", '"+y', { desc = "Copiar para clipboard" })
 
 -- ═══════════════════════════════════════════
 --  Autocommands
